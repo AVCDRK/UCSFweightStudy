@@ -17,13 +17,24 @@ The study hypotheses:
 $H_0$:  
 $H_A$:  
   
+  
+```{r include=FALSE}
+require(tidyverse)
+require(tigerstats)
+require(knitr)
+```
+
 read in the data set 
 
 ```{r}
+<<<<<<< HEAD
 require(tigerstats)
 require(tidyverse)
 require(knitr)
 WtLossData = read.csv(file = "FastingWtLoss.csv")
+=======
+WtLossData = read.csv('FastingWtLoss.csv')
+>>>>>>> 0417dc9fe6a96f7a3669ab34e4bf271ca01dec39
 ```
 
   
@@ -39,20 +50,39 @@ What type of variable is the response variable?  What type of variable is the ex
 ## Now with ggplot - first select the basic data
 
 ```{r}
+<<<<<<< HEAD
 basicCN <- ggplot(WtLossData,aes(x=CMT,y=TRE))
+=======
+basicCN <- ggplot(WtLossData,aes(y=WtChg,x=Diet))
+>>>>>>> 0417dc9fe6a96f7a3669ab34e4bf271ca01dec39
 ```
 ## Now add in boxplot
 
 ```{r}
+<<<<<<< HEAD
 basicCN + geom_point()
 ```
   
 
+=======
+basicCN + geom_boxplot()
+```
+  
+  
+### get fancy  
+
+```{r}
+basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='errorbar') + labs(title="Fancy notch boxplot \n with 2 lines")
+```
+>>>>>>> 0417dc9fe6a96f7a3669ab34e4bf271ca01dec39
 
 ## Numerical Data Summary  
 
 ```{r}
 #put numdrical summary code here
+```
+```{r}
+favstats(WtChg~Diet,data=WtLossData)
 ```
 
 ## Inferential Analysis
