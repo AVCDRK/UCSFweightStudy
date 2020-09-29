@@ -20,7 +20,10 @@ $H_A$:
 read in the data set 
 
 ```{r}
-#WtLossData = read.csv()
+require(tigerstats)
+require(tidyverse)
+require(knitr)
+WtLossData = read.csv(file = "FastingWtLoss.csv")
 ```
 
   
@@ -33,6 +36,18 @@ What type of variable is the response variable?  What type of variable is the ex
 ```{r}
 # put graphic display code here
 ```
+## Now with ggplot - first select the basic data
+
+```{r}
+basicCN <- ggplot(WtLossData,aes(x=CMT,y=TRE))
+```
+## Now add in boxplot
+
+```{r}
+basicCN + geom_point()
+```
+  
+
 
 ## Numerical Data Summary  
 
@@ -43,7 +58,7 @@ What type of variable is the response variable?  What type of variable is the ex
 ## Inferential Analysis
 
 ```{r}
-#put inferential data analysis code here
+t.test(WtLossData$CMT,WtLossData$TRE)
 ```
 
 ## Conclusions and recommendations:
